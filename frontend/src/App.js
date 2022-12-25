@@ -1,13 +1,17 @@
 import React from "react";
-import Header from "./components/common/Header";
-import Blog from "./components/Blog";
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Common/Header";
+import Home from "./pages/home";
+import "./styles/app.css";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app bg-body-tertiary">
       <Header />
-      <Blog />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </div>
   );
 }

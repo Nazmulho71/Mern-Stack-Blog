@@ -1,30 +1,68 @@
 import React from "react";
-import { Button, Container, Navbar, Dropdown } from "react-bootstrap";
 
 function Header() {
   return (
-    <Navbar bg="light" expand="lg" sticky="top">
-      <Container fluid>
-        <Navbar.Brand href="#">Blogern</Navbar.Brand>
-        <div className="d-flex align-items-center">
-          <Button variant="primary" className="me-3">
-            Post a Blog
-          </Button>
-          <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Samir Hossain
-            </Dropdown.Toggle>
+    <nav class="navbar navbar-expand-lg bg-white border">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          Blogern
+        </a>
 
-            <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Settings</Dropdown.Item>
-              <Dropdown.Divider />
-              <Dropdown.Item href="#/action-3">Logout</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </div>
-      </Container>
-    </Navbar>
+        <form class="d-flex" role="search">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-primary" type="submit">
+            Search
+          </button>
+        </form>
+
+        {localStorage.getItem("user") ? (
+          <div class="dropdown">
+            <button
+              class="btn btn-primary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Samir Hossain
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="#">
+                  Profile
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">
+                  Settings
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <div>
+            <button class="btn btn-outline-primary me-3" type="button">
+              Login
+            </button>
+            <button class="btn btn-primary" type="button">
+              Signup
+            </button>
+          </div>
+        )}
+      </div>
+    </nav>
   );
 }
 
