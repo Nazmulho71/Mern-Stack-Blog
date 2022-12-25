@@ -20,7 +20,7 @@ function Home() {
   return (
     <div className="home bg-white border rounded-1">
       <div className="d-flex align-items-center justify-content-between mb-4">
-        <p className="fw-bold text-muted m-0">NEW ON BLOG</p>
+        <p className="fw-bold m-0 opacity-50">NEW ON BLOG</p>
         <button className="btn btn-outline-primary">Write a Blog</button>
       </div>
 
@@ -38,7 +38,13 @@ function Home() {
 
             <p className="m-0">
               {blog.content}{" "}
-              <span className="fw-bold text-primary">Read more</span>
+              <span
+                className="fw-bold text-primary"
+                type="button"
+                onClick={() => window.location.replace("/blog")}
+              >
+                Read more
+              </span>
             </p>
           </div>
 

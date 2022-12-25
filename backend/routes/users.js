@@ -28,7 +28,7 @@ router.post("/", validate(validateUser), async (req, res) => {
 
   return res
     .header("X-Auth-Token", token)
-    .send({ _id: user._id, name: user.name, email: user.email });
+    .send({ _id: user._id, name: user.name, email: user.email, token });
 });
 
 router.put("/:id", validate(validateUser), async (req, res) => {
